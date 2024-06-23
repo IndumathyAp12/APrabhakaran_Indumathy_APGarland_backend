@@ -2,8 +2,7 @@ const { Schema, model } = require('../config/db-connection');
 
 const orderSchema = new Schema({
   userId: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
+    type: String,  
     required: [true, 'User ID is required'],
   },
   products: [{
@@ -29,6 +28,7 @@ const orderSchema = new Schema({
     default: 'Pending',
   },
 });
+
 
 
 module.exports  = model('Order', orderSchema);

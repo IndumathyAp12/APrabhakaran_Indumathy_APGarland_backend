@@ -1,5 +1,5 @@
 const mongoose = require('../config/db-connection.js');
-const Product = require('../models/Product.js');  // Corrected model name
+const Product = require('../models/Product.js'); 
 const User = require('../models/User.js');
 const Order = require('../models/Order.js');
 
@@ -200,70 +200,77 @@ const products = [
     name: 'Product 1',
     description: 'Description for Product 1',
     price: 29.99,
-    imageUrl: 'http://example.com/product1.jpg',
+    imagePath: 'images/garland 1.png',
   },
   {
     _id: '60c72b2f4f1a2c001c9d8e1b',
     name: 'Product 2',
     description: 'Description for Product 2',
     price: 39.99,
-    imageUrl: 'http://example.com/product2.jpg',
+    imagePath: 'images/garland 2.jpg',
   },
   {
     _id: '60c72b2f4f1a2c001c9d8e1c',
     name: 'Product 3',
     description: 'Description for Product 3',
     price: 19.99,
-    imageUrl: 'http://example.com/product3.jpg',
-  },
+    imagePath: 'images/garland 3.jpg',
+      },
   {
     _id: '60c72b2f4f1a2c001c9d8e1d',
     name: 'Product 4',
     description: 'Description for Product 4',
     price: 49.99,
-    imageUrl: 'http://example.com/product4.jpg',
+    imagePath: 'images/garland 4.jpg',
+
   },
   {
     _id: '60c72b2f4f1a2c001c9d8e1e',
     name: 'Product 5',
     description: 'Description for Product 5',
     price: 24.99,
-    imageUrl: 'http://example.com/product5.jpg',
+    imagePath: 'images/garland 5.jpg',
+
   },
   {
     _id: '60c72b2f4f1a2c001c9d8e1f',
     name: 'Product 6',
     description: 'Description for Product 6',
     price: 59.99,
-    imageUrl: 'http://example.com/product6.jpg',
+    imagePath: 'images/garland 6.jpg',
+
   },
   {
     _id: '60c72b2f4f1a2c001c9d8e20',
     name: 'Product 7',
     description: 'Description for Product 7',
     price: 34.99,
-    imageUrl: 'http://example.com/product7.jpg',
+    imagePath: 'images/garland 7.jpg',
+
   },
   {
     _id: '60c72b2f4f1a2c001c9d8e21',
     name: 'Product 8',
     description: 'Description for Product 8',
     price: 44.99,
-    imageUrl: 'http://example.com/product8.jpg',
+    imagePath: 'images/garland 8.jpg',
+
   },
   {
     _id: '60c72b2f4f1a2c001c9d8e22',
     name: 'Product 9',
     description: 'Description for Product 9',
     price: 54.99,
-    imageUrl: 'http://example.com/product9.jpg',
+    imagePath: 'images/garland 9.jpg',
+
   },
   {
     _id: '60c72b2f4f1a2c001c9d8e23',
     name: 'Product 10',
     description: 'Description for Product 10',
     price: 64.99,
-    imageUrl: 'http://example.com/product10.jpg',
+    imagePath: 'images/garland 10.jpg',
+
   },
 ];
 
