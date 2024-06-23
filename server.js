@@ -1,9 +1,9 @@
 // Requiring necessary packages
 require('dotenv').config();
 const express = require('express');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const cors = require('cors');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 // Creating the express server and storing inside the app variable
 const app = express();
@@ -18,7 +18,7 @@ const orderRouter = require('./routes/orders.js');
 
 // Middleware setup
 app.use(cors());
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use(express.json());
 
 // Custom Middleware
@@ -42,11 +42,11 @@ app.use((err, req, res, next) => {
 });
 
 // Connecting to MongoDB
-// mongoose.connect(process.env.MONGO_URI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// }).then(() => console.log('MongoDB connected'))
-//   .catch((err) => console.log(err));
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => console.log('MongoDB connected'))
+  .catch((err) => console.log(err));
 
 // Calling the listen function telling the server to listen on the configured port
 app.listen(PORT, () => {

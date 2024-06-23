@@ -28,7 +28,7 @@ const orderSchema = new Schema({
     enum: ['Pending', 'Completed', 'Cancelled'],
     default: 'Pending',
   },
-}, { timestamps: true });
+});
 
 
 module.exports  = model('Order', orderSchema);
