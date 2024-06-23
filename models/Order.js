@@ -6,11 +6,11 @@ const orderSchema = new Schema({
     ref: 'User',
     required: [true, 'User ID is required'],
   },
-  items: [{
-    itemId: {
+  products: [{
+    productId: {
       type: Schema.Types.ObjectId,
-      ref: 'Item',
-      required: [true, 'Item ID is required'],
+      ref: 'Product',
+      required: [true, 'Product ID is required'],
     },
     quantity: {
       type: Number,
