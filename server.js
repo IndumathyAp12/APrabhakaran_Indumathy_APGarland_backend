@@ -13,6 +13,8 @@ const PORT = process.env.PORT || 8000;
 
 // Requiring example router
 const userRouter = require('./routes/users.js');
+const itemRouter = require('./routes/items.js');
+const orderRouter = require('./routes/orders.js');
 
 // Middleware setup
 app.use(cors());
@@ -26,6 +28,12 @@ app.use((req, res, next) => {
 
 // Connecting the router to the server
 app.use('/users', userRouter);
+app.use('/items',itemRouter);
+app.use('/orders',orderRouter);
+
+app.get("/",(req,res) => {
+  res.send('<h1>AP Garland</h1>');
+});
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
