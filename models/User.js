@@ -1,4 +1,4 @@
-const { Schema, model } = require('../config/db-connection');
+const { Schema, model } = require('../config/db-connection.js');
 
 
 const userSchema = new Schema({
@@ -18,8 +18,8 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: [true, 'Password is required'],
-    minlength: [8, 'Password must be at least 8 characters long'],
-  },
+    minlength: [8, 'Password must be at least 8 characters long']
+  }
 });
 
 module.exports  = model('User', userSchema);
