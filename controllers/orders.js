@@ -41,7 +41,7 @@ async function getOrderById(req, res) {
 
 async function updateOrder(req, res) {
   try {
-    const updatedOrder = await Order.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+    const order = await Order.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
     if (!order) {
       return res.status(404).send('Order not found');
     }
@@ -58,7 +58,7 @@ async function deleteOrder(req, res) {
       return res.status(404).send('Order not found');
     }
     res.status(200).json(order);
-  } catch (error) {
+      } catch (error) {
     res.status(500).send(error.message);
   }
 }

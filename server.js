@@ -38,7 +38,8 @@ app.get("/",(req,res) => {
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
-  res.status(500).send('Something went wrong.');
+  console.error(err.stack);
+  res.status(500).json({ message: 'Something went wrong', error: err.message });
 });
 
 // Connecting to MongoDB
