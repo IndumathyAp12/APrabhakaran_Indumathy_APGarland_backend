@@ -1,4 +1,4 @@
-const { Schema, model } = require('../config/db-connection');
+const { Schema, model } = require('mongoose');
 
 const orderSchema = new Schema({
   userId: {
@@ -7,7 +7,7 @@ const orderSchema = new Schema({
   },
   products: [{
     productId: {
-      type: Number,
+      type: Schema.Types.ObjectId,
       ref: 'Product',
       required: [true, 'Product ID is required'],
     },
@@ -27,8 +27,14 @@ const orderSchema = new Schema({
     enum: ['Pending', 'Completed', 'Cancelled'],
     default: 'Pending',
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-
-
-module.exports  = model('Order', orderSchema);
+module.exports = model('Order', orderSchema);
