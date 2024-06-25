@@ -1,6 +1,5 @@
 const { Schema, model } = require('../config/db-connection.js');
 
-
 const userSchema = new Schema({
   username: {
     type: String,
@@ -19,12 +18,16 @@ const userSchema = new Schema({
     type: String,
     required: [true, 'Password is required'],
     minlength: [8, 'Password must be at least 8 characters long']
+  },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user' 
   }
 });
 
-//Indexes:
-userSchema.index({ name: 1 });
+// Indexes (if needed)
+userSchema.index({ username: 1 });
+userSchema.index({ email: 1 });
 
-module.exports  = model('User', userSchema);
-
-
+module.exports = model('User', userSchema);

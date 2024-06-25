@@ -2,6 +2,8 @@ const mongoose = require('../config/db-connection.js');
 const Product = require('../models/Product.js'); 
 const User = require('../models/User.js');
 const Order = require('../models/Order.js');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 // Sample data
 const users = [
@@ -279,6 +281,15 @@ async function seed() {
     await Product.deleteMany({});
     await User.deleteMany({});
     await Order.deleteMany({});
+
+       // Hash passwords before creating users
+       const hashedUsers = await Promise.all(users.map(async (user) => {
+        const hashedPassword = await bcrypt.hash(user.password, saltRounds);
+        return {
+          ...user,
+          password: hashedPassword
+        };
+      }));
 
     const createdProducts = await Product.create(products);
     console.log('Products: ', createdProducts);
