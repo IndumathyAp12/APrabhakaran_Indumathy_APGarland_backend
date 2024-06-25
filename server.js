@@ -15,11 +15,10 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-
 // Custom Middleware to log requests
 app.use((req, res, next) => {
   console.log(`A ${req.method} request was made to ${req.url}`);
-  console.log('Request Body:', req.body);  // Log request body for debugging
+  console.log('Request Body:', req.body);  
   next();
 });
 
@@ -32,6 +31,26 @@ const orderRouter = require('./routes/orders.js');
 app.use('/users', userRouter);
 app.use('/products', productRouter);
 app.use('/orders', orderRouter);
+
+// Mongoose model for contact form submissions
+const Contact = require('./models/Contact');
+
+// Route to handle contact form submission
+app.post('/api/contact', async (req, res) => {
+  const { name, email, message } = req.body;
+
+  try {
+    // Save the data to the database
+    const newContact = new Contact({ name, email, message });
+    await newContact.save();
+
+    // Respond to the client
+    res.status(200).json({ message: 'Message received successfully!' });
+  } catch (error) {
+    console.error('Error saving contact form submission:', error);
+    res.status(500).json({ message: 'Error saving contact form submission' });
+  }
+});
 
 app.get("/", (req, res) => {
   res.send('<h1>AP Garland</h1>');

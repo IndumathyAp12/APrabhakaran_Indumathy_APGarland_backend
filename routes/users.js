@@ -1,16 +1,22 @@
-
 const { Router } = require('express');
 const userController = require('../controllers/users.js');
+const jwtMiddleware = require('../middleware/jwtMiddleware');
 const router = Router();
 
-router.post('/', userController.createUser);
+// Registration route
+router.post('/register', userController.registerUser);
 
-router.get('/', userController.getAllUsers);
+// Login user route
+router.post('/login', userController.loginUser);
 
-router.get('/:id', userController.getUserById);
+// CRUD operations
+router.post('/', userController.createUser); // Create a new user
+router.get('/', userController.getAllUsers); // Get all users
+router.get('/:id', userController.getUserById); // Get user by ID
+router.put('/:id', userController.updateUser); // Update user by ID
+router.delete('/:id', userController.deleteUser); // Delete user by ID
 
-router.put('/:id', userController.updateUser);
-
-router.delete('/:id', userController.deleteUser);
+// Protected route example (fetch user profile)
+router.get('/profile', jwtMiddleware, userController.getUserProfile);
 
 module.exports = router;
