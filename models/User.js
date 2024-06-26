@@ -26,7 +26,7 @@ const userSchema = new Schema({
   }
 });
 
-// Indexes (if needed)
+// Indexes 
 userSchema.index({ username: 1 });
 userSchema.index({ email: 1 });
 

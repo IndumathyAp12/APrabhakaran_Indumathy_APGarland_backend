@@ -9,6 +9,7 @@ module.exports = {
   deleteOrder,
 };
 
+// create a new order
 async function createOrder(req, res) {
   try {
     const order = new Order(req.body);
@@ -19,6 +20,7 @@ async function createOrder(req, res) {
   }
 }
 
+//fetch all orders
 async function getAllOrders(req, res) {
   try {
     const orders = await Order.find({}).populate('userId').populate('products.productId');
@@ -28,6 +30,7 @@ async function getAllOrders(req, res) {
   }
 }
 
+// fetch an order by ID
 async function getOrderById(req, res) {
   try {
     const orderId = req.params.id;
@@ -46,6 +49,7 @@ async function getOrderById(req, res) {
   }
 }
 
+// update an existing order
 async function updateOrder(req, res) {
   try {
     const orderId = req.params.id;
@@ -64,6 +68,7 @@ async function updateOrder(req, res) {
   }
 }
 
+// Delete the order by its ID
 async function deleteOrder(req, res) {
   try {
     const orderId = req.params.id;

@@ -2,6 +2,7 @@ const { Router } = require('express');
 const productController = require('../controllers/products.js');
 const router = Router();
 
+// CRUD operations
 router.post('/', productController.createProduct);
 
 router.get('/', productController.getAllProducts);

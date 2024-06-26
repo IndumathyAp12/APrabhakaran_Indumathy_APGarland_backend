@@ -5,7 +5,7 @@ const Order = require('../models/Order.js');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-// Sample data
+// Sample data for users
 const users = [
   {
     username: 'emma_smith',
@@ -59,6 +59,7 @@ const users = [
   }
 ];
 
+// Sample data for orders
 const orders = [
   {
     userId: '60c72c3f4f1a2c001c9d8e24',
@@ -196,6 +197,8 @@ const orders = [
   },
 ];
 
+// Sample data for Products
+
 const products = [
   {
     _id: '60c72b2f4f1a2c001c9d8e1a',
@@ -276,6 +279,7 @@ const products = [
   },
 ];
 
+// Function to seed the database with sample data
 async function seed() {
   try {
     await Product.deleteMany({});
@@ -291,15 +295,19 @@ async function seed() {
         };
       }));
 
+       // Create products in the database
     const createdProducts = await Product.create(products);
     console.log('Products: ', createdProducts);
 
+     // Create users in the database
     const createdUsers = await User.create(users);
     console.log('Users: ', createdUsers);
 
+     // Create orders in the database
     const createdOrders = await Order.create(orders);
     console.log('Orders: ', createdOrders);
 
+    // Close the database connection
     await mongoose.connection.close();
   } catch (err) {
     console.log(err);

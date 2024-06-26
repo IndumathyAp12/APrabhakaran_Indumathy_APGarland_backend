@@ -2,6 +2,7 @@ const { Router } = require('express');
 const orderController = require('../controllers/orders.js');
 const router = Router();
 
+// CRUD operations
 router.post('/', orderController.createOrder);
 
 router.get('/', orderController.getAllOrders);

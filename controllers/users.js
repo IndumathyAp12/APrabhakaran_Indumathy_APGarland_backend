@@ -191,7 +191,7 @@ async function deleteUser(req, res) {
 // Get user profile (protected route)
 async function getUserProfile(req, res) {
   try {
-    // Assuming jwtMiddleware has already verified and attached the user object to req.user
+    
     const userProfile = {
       _id: req.user._id,
       username: req.user.username,

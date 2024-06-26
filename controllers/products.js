@@ -9,6 +9,7 @@ module.exports = {
   deleteProduct,
 };
 
+// create a new product
 async function createProduct(req, res) {
   try {
     const newProduct = new Product(req.body);
@@ -19,6 +20,7 @@ async function createProduct(req, res) {
   }
 }
 
+// Get all Products
 async function getAllProducts(req, res) {
   try {
     const products = await Product.find({});
@@ -27,6 +29,8 @@ async function getAllProducts(req, res) {
     res.status(500).json({ message: error.message });
   }
 }
+
+// Get a Product by its ID
 
 async function getProductById(req, res) {
   try {
@@ -46,6 +50,8 @@ async function getProductById(req, res) {
   }
 }
 
+//Update the Productby ID
+
 async function updateProduct(req, res) {
   try {
     const productId = req.params.id;
@@ -64,6 +70,7 @@ async function updateProduct(req, res) {
   }
 }
 
+// Delete the Product by ID
 async function deleteProduct(req, res) {
   try {
     const productId = req.params.id;
